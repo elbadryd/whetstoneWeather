@@ -13,15 +13,26 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.get('/weather', (req, res)=>{
-  console.log(req.query.cityName, 'hit');
-  axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${req.query.cityName}&APPID=c40bc7a9330f14625233d84173185427`)
+  axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${req.query.cityName}&APPID=c40bc7a9330f14625233d84173185427`)
   .then(response => {
-    console.log(response);
-    res.send(response.data.list)
+    console.log(response.data, 'success');
+    res.send(response.data)
   })
   .catch(err=>{
-    res.send(err)
+    console.log(err, 'error');
+    res.sendStatus(404)
   })
+})
+app.get('/forecast', (req, res) => {
+  axios.get(`http://api.openweathermap.org/data/2.5/forecast?q=${req.query.cityName}&APPID=c40bc7a9330f14625233d84173185427`)
+    .then(response => {
+      console.log(response.data, 'success');
+      res.send(response.data)
+    })
+    .catch(err => {
+      console.log(err, 'error');
+      res.sendStatus(404)
+    })
 })
 app.listen(PORT, () => {
   console.log(path.join(__dirname + '/../dist/whetstone-weather'))

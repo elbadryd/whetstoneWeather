@@ -9,17 +9,14 @@ import { catchError } from 'rxjs/operators'
   providedIn: 'root'
 })
 export class ForecastService {
-  results: {};
   constructor(private http: HttpClient) { }
 
  getWeather(cityName: Search){
-    console.log(cityName, 'service')
     let params = new HttpParams().set('cityName', cityName.toString())
-   return this.http.get('/weather', { params } ).toPromise()
-   
-    //   {
-    //   headers: new HttpHeaders().append('Content-Type', 'application/json'),
-    //   params: cityName,
-    // })
+    return this.http.get('/weather', { params } )
+  } 
+  getForecast(cityName: Search) {
+    let params = new HttpParams().set('cityName', cityName.toString())
+    return this.http.get('/forecast', { params })
   } 
 }

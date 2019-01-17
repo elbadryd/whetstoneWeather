@@ -8,9 +8,12 @@ placeholder="Your City"
 </mat-form-field>
 <button mat-raised-button
 color="primary"
-(click)="onGetForecast()">
+(click)="onGetWeather()">
+  get weather
+</button>
+<button mat-raised-button color="primary" (click)="onGetForecast()">
   get forecast
 </button>
 </mat-card>
-<p>{{ cityName }}</p>
-<p>{{ results | async | json }}</p>
+<p>weather: {{ weather | async | json }}</p>
+<p>forecast: {{ forecast | async | json }}</p>

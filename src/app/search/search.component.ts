@@ -10,14 +10,19 @@ import { Search } from '../search'
 })
 export class SearchComponent implements OnInit {
   cityName: null;
-  results: any;
+  weather: any;
+  forecast: any;
   constructor(private forecastService: ForecastService) { }
 
   ngOnInit() {
   }
+  onGetWeather(): void {
+    console.log(this.cityName, 'search component')
+    this.weather = this.forecastService.getWeather(this.cityName);
+  }
   onGetForecast(): void {
     console.log(this.cityName, 'search component')
-    this.results = this.forecastService.getWeather(this.cityName);
+    this.forecast = this.forecastService.getForecast(this.cityName);
   }
 
 }
