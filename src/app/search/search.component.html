@@ -1,11 +1,16 @@
-<label>Enter your location
 <mat-card class="example-form">
+<label>Enter your location</label>
 <mat-form-field class="example-full-width">
-<input matInput [(ngModel)]="cityName" placeholder="your city" [ngModelOptions]="{standalone: true}" >
+<input matInput 
+[(ngModel)]="cityName" 
+placeholder="Your City" 
+[ngModelOptions]="{standalone: true}" >
 </mat-form-field>
-</mat-card>
-</label>
-<button (click)="onGetForecast()">
+<button mat-raised-button
+color="primary"
+(click)="onGetForecast()">
   get forecast
 </button>
+</mat-card>
 <p>{{ cityName }}</p>
+<p>{{ results | async | json }}</p>

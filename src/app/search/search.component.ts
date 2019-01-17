@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Types } from '../types';
+import { ForecastService } from '../forecast.service';
+import { Observable } from 'rxjs'
+import { Search } from '../search'
 
 @Component({
   selector: 'app-search',
@@ -7,13 +9,15 @@ import { Types } from '../types';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  cityName = '';
-  constructor() { }
+  cityName: null;
+  results: any;
+  constructor(private forecastService: ForecastService) { }
 
   ngOnInit() {
   }
-  onGetForecast(){
-    console.log(this.cityName)
+  onGetForecast(): void {
+    console.log(this.cityName, 'search component')
+    this.results = this.forecastService.getWeather(this.cityName);
   }
 
 }
