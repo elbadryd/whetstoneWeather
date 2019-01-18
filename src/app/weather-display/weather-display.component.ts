@@ -9,7 +9,8 @@ import { Search } from '../search'
 })
 
 export class WeatherDisplayComponent implements OnInit {
-  @Input() public weather;
+  @Input() weather: Search;
+  private Math = Math;
   constructor() { }
 
   ngOnInit() {
