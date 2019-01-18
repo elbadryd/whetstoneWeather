@@ -15,5 +15,6 @@ color="primary"
   get forecast
 </button>
 </mat-card>
-<p>weather: {{ weather | async | json }}</p>
-<p>forecast: {{ forecast | async | json }}</p>
+<!-- <p>weather: {{ weather | async | json }}</p> -->
+<app-weather-display [weather]="weather"></app-weather-display>
+<app-forecast-display [forecast]="forecast"></app-forecast-display>
