@@ -17,11 +17,11 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
   onGetWeather(): void {
-    console.log(this.cityName, 'search component')
+    console.log(this.cityName)
     this.weather = this.forecastService.getWeather(this.cityName);
+    console.log(this.weather)
   }
   onGetForecast(): void {
-    console.log(this.cityName, 'search component')
     this.forecast = this.forecastService.getForecast(this.cityName);
   }
 

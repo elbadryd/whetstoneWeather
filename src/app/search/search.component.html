@@ -6,6 +6,7 @@
 placeholder="Your City" 
 [ngModelOptions]="{standalone: true}" >
 </mat-form-field>
+<mat-card-actions>
 <button mat-raised-button
 color="primary"
 (click)="onGetWeather()">
@@ -14,7 +15,7 @@ color="primary"
 <button mat-raised-button color="primary" (click)="onGetForecast()">
   get forecast
 </button>
+</mat-card-actions>
 </mat-card>
-<!-- <p>weather: {{ weather | async | json }}</p> -->
 <app-weather-display [weather]="weather"></app-weather-display>
 <app-forecast-display [forecast]="forecast"></app-forecast-display>

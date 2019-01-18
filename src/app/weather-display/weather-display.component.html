@@ -1,4 +1,16 @@
-<p>
-  Current Weather:
-  {{ weather | async | json }}
-</p>
+<p>{{ weather | async | json }}</p>
+<div *ngIf="weather">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      Current Weather for {{ weather.name  }}
+          </mat-card-title>
+      </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{ weather.temp * 9/5 - 459.67 }}°F
+          </p>
+            <img mat-card-image src="http://openweathermap.org/img/w/{{ weather.weather.icon }}.png" />
+        </mat-card-content>
+</mat-card>
+</div>
